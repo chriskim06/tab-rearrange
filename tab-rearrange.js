@@ -9,12 +9,12 @@ chrome.commands.onCommand.addListener(function(command) {
   };
   chrome.tabs.query(queryInfo, function(tabs) {
     if (tabs.length > 1) {
-      var selectedTab = Array.prototype.find.call(tabs, function(value) {
+      var selectedTab = tabs.find(function(value) {
         return value.highlighted;
       });
 
       if (!selectedTab.pinned) {
-        var pinnedTabs = Array.prototype.filter.call(tabs, function(value) {
+        var pinnedTabs = tabs.filter(function(value) {
           return value.pinned;
         });
 
